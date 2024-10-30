@@ -2,9 +2,7 @@ package com.example.heyBuddy.service;
 
 import com.example.heyBuddy.dto.PersonDTO;
 import com.example.heyBuddy.enums.Role;
-import com.example.heyBuddy.model.Interest;
 import com.example.heyBuddy.model.Person;
-import com.example.heyBuddy.repository.InterestRepository;
 import com.example.heyBuddy.repository.PersonRepository;
 import com.example.heyBuddy.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -150,12 +148,5 @@ public class PersonService {
         return ((double) matchingInterestsCount / travellerInterests.size()) * 100;
     }
 
-    @Autowired
-    private InterestRepository interestRepository;
-
-    // Method to retrieve interest names by IDs
-    public List<Interest> getInterestsByIds(List<Integer> interestIds) {
-        return interestRepository.findAllById(interestIds);
-    }
 
 }
