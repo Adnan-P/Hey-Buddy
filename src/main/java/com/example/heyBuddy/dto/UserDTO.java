@@ -1,22 +1,15 @@
-package com.example.heyBuddy.model;
+package com.example.heyBuddy.dto;
 
 import com.example.heyBuddy.enums.Role;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.example.heyBuddy.model.Vehicle;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
-
-@Document
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
-    @Id
+public class UserDTO {
     private String id;
     private String firstName;
     private String lastName;
@@ -27,8 +20,12 @@ public class Person {
     private Role role;
     private Date createdDate;
     private List<Integer> interestIds;
+    private double matchPercentage;
+    private Vehicle vehicle;
 
-    public Person(String firstName, String lastName, String email, String phoneNumber, String aadharNumber, String location, Role role, Date createdDate, List<Integer> interestIds) {
+    public UserDTO(String id, String firstName, String lastName, String email, String phoneNumber,
+                   String aadharNumber, String location, Role role, Date createdDate, List<Integer> interestIds) {
+        this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -42,3 +39,4 @@ public class Person {
 
 
 }
+
